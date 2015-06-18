@@ -1,7 +1,32 @@
 @CHARSET "ISO-8859-1";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 body{
-	background-color : teal;
-	color : white;
+	background-color : #FFFFFF;
+	color : #59554E;
 	font-family: 'Open Sans', sans-serif;
+}
+
+h1{
+	color : #59554E
+}
+
+nav ul {
+	background-color: #A1C1BE;
+	padding: 0.4em 0;
+}
+
+nav li {
+	display: inline;
+}
+
+nav li a {
+	color: white;
+	padding-left: 0.5em;
+	text-decoration: none;
+	vertical-align: middle;
+}
+
+nav li a:hover {
+	color: #59554E;
+	font-weight: bold;
 }

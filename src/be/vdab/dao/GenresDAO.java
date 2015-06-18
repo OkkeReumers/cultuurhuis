@@ -1,24 +1,34 @@
 package be.vdab.dao;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
 import be.vdab.entities.Genre;
 
-public class GenresDAO  {
-	private static final Map<Long, Genre> GENRES = new ConcurrentHashMap<>();
-	static { 
-		GENRES.put(1L,new Genre(1, "Prosciutto"));
-		GENRES.put(2L,new Genre(2, "Margehrita"));
-		GENRES.put(3L,new Genre(3, "Calzone"));
-		GENRES.put(4L,new Genre(4, "Fungi & Olive"));
+public class GenresDAO extends AbstractDAO {
+	private static final String SELECT_ALL = "Select id,naam from genres ";
+
+	public Iterable<Genre> findAll() {
+
+		try (Connection connection = dataSource.getConnection();
+				Statement statement = connection.createStatement();
+				ResultSet resultSet = statement.executeQuery(SELECT_ALL
+						+ "ORDER BY naam ASC");) {
+			List<Genre> genrelijst = new ArrayList<>();
+			while (resultSet.next()) {
+				genrelijst.add(resultSetGenre(resultSet));
+			}
+			return genrelijst;
+		} catch (SQLException ex) {
+			throw new DAOException(ex);
+		}
 	}
-	public List<Genre> findAll() { 
-		return new ArrayList<>(GENRES.values());
-	}
-	public Genre read(long id) {
-		return GENRES.get(id);
+	
+	private Genre resultSetGenre(ResultSet resultSet) throws SQLException {
+
+		return new Genre(resultSet.getInt("id"), resultSet.getString("naam"));
 	}
 }
