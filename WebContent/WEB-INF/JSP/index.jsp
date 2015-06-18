@@ -4,7 +4,7 @@
 <!doctype html>
 <html>
 <head>
-	<vdab:head title='Voorstellingen'/>
+	<vdab:head title='Cultuurhuis'/>
 </head>
 <body>
 <h1>Test</h1>

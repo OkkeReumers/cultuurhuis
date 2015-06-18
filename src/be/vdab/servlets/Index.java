@@ -10,12 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet("/voorstellingen.htm")
-public class Voorstellingen extends HttpServlet {
+public class Index extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String VIEW = "/WEB-INF/JSP/voorstellingen.jsp";
+	private static final String VIEW = "/WEB-INF/JSP/index.jsp";
        
 
-    public Voorstellingen() {
+    public Index() {
         super();
         // TODO Auto-generated constructor stub
     }
