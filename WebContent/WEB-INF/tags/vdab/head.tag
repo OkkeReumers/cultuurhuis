@@ -6,3 +6,5 @@
 	type='image/x-icon' />
 <meta name='viewport' content='width=device-width,initial-scale=1'>
 <link rel='stylesheet' href='<c:url value="/styles/default.css"/>'>
+
+<!-- Deze tag kan op in elke jsp terug opgeroepen worden -->
