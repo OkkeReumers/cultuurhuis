@@ -30,3 +30,17 @@ nav li a:hover {
 	color: #59554E;
 	font-weight: bold;
 }
+
+table {
+	width: 100%;
+	font-weight: normal;
+}
+
+th {
+	background-color: #F3F4E5;
+}
+#subkop > tr > th{
+	color: darkcyan;
+	
+}
+

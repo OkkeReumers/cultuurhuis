@@ -1,6 +1,10 @@
 package be.vdab.entities;
 
-public class Genre {
+import java.io.Serializable;
+
+public class Genre implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String naam;
 
