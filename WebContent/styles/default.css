@@ -47,3 +47,12 @@ table tr {
 body > table > tbody:nth-child(2n+1) > tr{
 	background-color: #F3F4E5;
 }
+
+body > table > tbody > tr > td:nth-child(5) {
+	text-align: right;
+}
+
+body > table > tbody > tr > td:nth-child(6) > a{
+	color: #A1C1BE;
+	font-weight: bold;
+}
