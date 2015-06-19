@@ -1,7 +1,9 @@
 package be.vdab.servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
@@ -13,6 +15,7 @@ import javax.sql.DataSource;
 
 import be.vdab.dao.GenresDAO;
 import be.vdab.dao.VoorstellingenDAO;
+import be.vdab.entities.Voorstelling;
 
 @WebServlet("/index.htm")
 public class IndexServlet extends HttpServlet {
@@ -33,7 +36,23 @@ public class IndexServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		request.setAttribute("genres", genresDAO.findAll()); 						//alle items die via genresDAO gevonden worden in de database doorgeven aan de jsp		
-		request.setAttribute("voorstellingen", voorstellingenDAO.findAllGenre());
+		request.setAttribute("voorstellingen", voorstellingenDAO.findAll());
+		List<String> fouten = new ArrayList<String>();
+		if (request.getParameterValues("genreid") != null) {
+			try {
+				int genreid =Integer.parseInt(request.getParameter("genreid"));
+				List<Voorstelling> voorstellinglijstgenre = voorstellingenDAO
+						.findAllByGenre(genreid);
+				if (voorstellinglijstgenre.isEmpty()) {			
+					fouten.add("Geen voorstellingen");
+				} else {
+					request.setAttribute("voorstellingengenre", voorstellinglijstgenre);
+				}
+			} catch (NumberFormatException ex) {
+				fouten.add("Ongeldig genre.");
+			}
+		}
+		request.setAttribute("fouten", fouten);
 		request.setAttribute("nu", Calendar.getInstance().getTime());
 		request.getRequestDispatcher(VIEW).forward(request, response);
 	}

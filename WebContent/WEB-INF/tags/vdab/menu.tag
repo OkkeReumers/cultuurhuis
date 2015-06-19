@@ -4,10 +4,10 @@
 	<nav>
 	<ul>
 		<c:forEach var='genre' items='${genres}'> 							<!-- voor elke item dat uit de database gevonden wordt,via genresDAO en indexservlet wordt de link getoond -->
-			<c:url value='/voorstellingen/detail.htm' var='detailURL'>
-				<c:param name='id' value="${genre.id}" />
-			</c:url>
-			<li><a href="<c:out value='${genre.naam}'/>">${genre.naam }</a> <!-- de naam die uit de database genomen wordt tonen als link -->
+			<c:url value='/index.htm' var='detailURL'>
+					<c:param name='genreid' value="${genre.id}"/>
+				</c:url>
+				<li><a href="<c:out value='${detailURL}'/>">${genre.naam }</a>	
 			</li>
 		</c:forEach>
 		</ul>

@@ -1,4 +1,4 @@
-<%@ page contentType='text/html' pageEncoding='UTF-8' session='false'%>
+<%@ page contentType='text/html' pageEncoding='UTF-8'%>
 <%@taglib uri='http://vdab.be/tags' prefix='vdab'%>
 <%@taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core'%>
 <%@taglib prefix='fmt' uri='http://java.sun.com/jsp/jstl/fmt'%>
@@ -26,7 +26,7 @@
 			<th>Vrije plaatsen</th>
 			<th>Reserveren</th>
 	</thead>
-	<c:forEach var='voorstelling' items='${voorstellingen}'>
+	<c:forEach var='voorstelling' items='${voorstellingengenre}'>
 	<tbody>
 	<tr>
 	<td><fmt:formatDate value="${voorstelling.datum}"
@@ -40,6 +40,5 @@
 	</tbody>
 	</c:forEach> 
 	</table>
-
 </body>
 </html>
