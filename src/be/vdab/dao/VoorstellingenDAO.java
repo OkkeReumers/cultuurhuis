@@ -10,6 +10,9 @@ import java.util.List;
 
 
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import be.vdab.entities.Voorstelling;
 
 public class VoorstellingenDAO extends AbstractDAO{
@@ -17,10 +20,12 @@ public class VoorstellingenDAO extends AbstractDAO{
 	private static final String SELECT_ALL= "Select id,titel,uitvoerders,datum,genreid,prijs"
 			+ ",vrijeplaatsen from voorstellingen ";
 	
-	private static final String SELECT_BY_GENRE= "Select id,titel,uitvoerders,datum,genreid,prijs"
-			+ ",vrijeplaatsen from voorstellingen where genreid = ? AND datum >= CURDATE()";
+	private static final String SELECT_BY_GENRE= SELECT_ALL + "where genreid = ? AND datum >= CURDATE()";
+	
+	private static final String READ_SQL = SELECT_ALL + "where id=?";
 	
 	
+	private final static Logger logger = Logger.getLogger(VoorstellingenDAO.class.getName());
 //****************LAAT ALLE VOORSTELLINGEN ZIEN****************//
 	public Iterable<Voorstelling> findAll() {
 	try (Connection connection = dataSource.getConnection();
@@ -56,6 +61,22 @@ public class VoorstellingenDAO extends AbstractDAO{
 			throw new DAOException(ex);
 		}
 		
+	}
+	
+	public Voorstelling read(int voorstellingid) {
+		try (Connection connection = dataSource.getConnection();
+				PreparedStatement statement = connection.prepareStatement(READ_SQL)) {
+			statement.setInt(1, voorstellingid);
+			try (ResultSet resultSet = statement.executeQuery()) {
+				if (resultSet.next()) {
+					return resultSetVoorstelling(resultSet);
+				}
+				return null;
+			}
+		} catch (SQLException ex) {
+			logger.log(Level.SEVERE, "Probleem met database cultuurhuis", ex);
+			throw new DAOException(ex);
+		}
 	}
 	
 	private Voorstelling resultSetVoorstelling(ResultSet resultSet) throws SQLException {

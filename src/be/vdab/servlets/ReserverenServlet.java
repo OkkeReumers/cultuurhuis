@@ -26,6 +26,12 @@ void setDataSource(DataSource dataSource) {
 @Override
 protected void doGet(HttpServletRequest request, HttpServletResponse response)
 throws ServletException, IOException {
+	try {
+		request.setAttribute("pizza",
+			voorstellingenDAO.read(Integer.parseInt(request.getParameter("id"))));
+	} catch (NumberFormatException ex) { // request param bevat geen getal
+		request.setAttribute("fout", "Nummer niet correct");
+	}
 	request.getRequestDispatcher(VIEW).forward(request, response);
 	}
 }
