@@ -1,5 +1,6 @@
 @CHARSET "ISO-8859-1";
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
+@import "normalize.css" ";
 body{
 	background-color : #FFFFFF;
 	color : #59554E;
@@ -54,5 +55,43 @@ body > table > tbody > tr > td:nth-child(5) {
 
 body > table > tbody > tr > td:nth-child(6) > a{
 	color: #A1C1BE;
+	font-weight: bold;
+}
+
+body > dl > dd {
+	color: deeppink;
+	margin-left: 0;
+	font-weight: bold;
+}
+
+.plaatsen {
+	width: 80px;
+}
+
+.reserveren {
+	margin-top: 20px;
+}
+
+
+menu {
+	background-color: #A1C1BE;
+}
+
+menu ul {
+	margin-left: -40px;
+}
+menu li {
+	display: inline;
+	margin-left: -40px;
+}
+
+menu li a {
+	color: white;
+	padding-left: 0.5em;
+	vertical-align: middle;
+}
+
+menu li a:hover {
+	color: #59554E;
 	font-weight: bold;
 }

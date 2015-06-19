@@ -34,7 +34,7 @@
 								dateStyle='short' timeStyle='short' /></td>
 						<td>${voorstelling.titel }</td>
 						<td>${voorstelling.uitvoerders }</td>
-						<td>${voorstelling.prijs }</td>
+						<td>€ ${voorstelling.prijs }</td>
 						<td>${voorstelling.vrijeplaatsen }</td>
 						<c:if test='${voorstelling.vrijeplaatsen > 0}'>
 						<td>

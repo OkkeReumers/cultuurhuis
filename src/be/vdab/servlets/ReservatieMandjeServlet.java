@@ -11,10 +11,10 @@ import javax.sql.DataSource;
 
 import be.vdab.dao.VoorstellingenDAO;
 
-@WebServlet("/reserveren.htm")
-public class ReserverenServlet extends HttpServlet {
+@WebServlet("/reservatiemandje.htm")
+public class ReservatieMandjeServlet extends HttpServlet {
 private static final long serialVersionUID= 1L;
-private static final String VIEW = "/WEB-INF/JSP/reserveren.jsp";
+private static final String VIEW = "/WEB-INF/JSP/reservatiemandje.jsp";
 private final transient VoorstellingenDAO voorstellingenDAO = new VoorstellingenDAO();
 
 @Resource(name = VoorstellingenDAO.JNDI_NAME) 
@@ -25,12 +25,6 @@ void setDataSource(DataSource dataSource) {
 @Override
 protected void doGet(HttpServletRequest request, HttpServletResponse response)
 throws ServletException, IOException {
-	try {
-		request.setAttribute("voorstelling",
-			voorstellingenDAO.read(Integer.parseInt(request.getParameter("voorstellingid"))));
-	} catch (NumberFormatException ex) { // request param bevat geen getal
-		request.setAttribute("fout", "Nummer niet correct");
-	}
 	request.getRequestDispatcher(VIEW).forward(request, response);
 	}
 }
