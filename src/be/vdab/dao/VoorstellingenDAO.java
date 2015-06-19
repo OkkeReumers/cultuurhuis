@@ -1,14 +1,12 @@
 package be.vdab.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import be.vdab.entities.Genre;
 import be.vdab.entities.Voorstelling;
 
 public class VoorstellingenDAO extends AbstractDAO{
@@ -35,7 +33,7 @@ public class VoorstellingenDAO extends AbstractDAO{
 	private Voorstelling resultSetVoorstelling(ResultSet resultSet) throws SQLException {
 
 		return new Voorstelling(resultSet.getInt("id"), resultSet.getString("titel"), 
-				resultSet.getString("uitvoerders"), resultSet.getDate("datum"), resultSet.getInt("genreid"), 
+				resultSet.getString("uitvoerders"), resultSet.getTimestamp("datum"), resultSet.getInt("genreid"), 
 				resultSet.getBigDecimal("prijs"), resultSet.getInt("vrijeplaatsen"));
 	}
 }

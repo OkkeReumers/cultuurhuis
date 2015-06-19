@@ -3,6 +3,7 @@ package be.vdab.entities;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Voorstelling implements Serializable {
 
@@ -10,12 +11,12 @@ public class Voorstelling implements Serializable {
 	private int id;
 	private String titel;
 	private String uitvoerders;
-	private Date datum;
+	private Timestamp datum;
 	private int genreid;
 	private BigDecimal prijs;
 	private int vrijeplaatsen;
 	
-	public Voorstelling(int id, String titel, String uitvoerders, Date datum,
+	public Voorstelling(int id, String titel, String uitvoerders, Timestamp datum,
 			int genreid, BigDecimal prijs, int vrijeplaatsen) {
 		this.id = id;
 		this.titel = titel;
@@ -38,7 +39,7 @@ public class Voorstelling implements Serializable {
 		return uitvoerders;
 	}
 
-	public Date getDatum() {
+	public Timestamp getDatum() {
 		return datum;
 	}
 

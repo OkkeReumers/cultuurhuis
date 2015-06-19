@@ -17,7 +17,7 @@
 	</header>
 	<vdab:menu />
 	<table>
-	<tbody id="subkop">
+	<thead>
 		<tr>
 			<th>Datum</th>
 			<th>Titel</th>
@@ -25,16 +25,17 @@
 			<th>Prijs</th>
 			<th>Vrije plaatsen</th>
 			<th>Reserveren</th>
-	</tbody>
+	</thead>
 	<c:forEach var='voorstelling' items='${voorstellingen}'>
 	<tbody>
 	<tr>
-	<th>${voorstelling.datum }</th>
-	<th>${voorstelling.titel }</th>
-	<th>${voorstelling.uitvoerders }</th>
-	<th>${voorstelling.prijs }</th>
-	<th>${voorstelling.vrijeplaatsen }</th>
-	<th>reserveren</th>
+	<td><fmt:formatDate value="${voorstelling.datum}"
+									type="both" dateStyle='short' timeStyle='short' /></td>
+	<td>${voorstelling.titel }</td>
+	<td>${voorstelling.uitvoerders }</td>
+	<td>${voorstelling.prijs }</td>
+	<td>${voorstelling.vrijeplaatsen }</td>
+	<td>reserveren</td>
 	</tr>
 	</tbody>
 	</c:forEach> 
