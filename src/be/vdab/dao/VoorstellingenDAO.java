@@ -26,6 +26,8 @@ public class VoorstellingenDAO extends AbstractDAO{
 	
 	
 	private final static Logger logger = Logger.getLogger(VoorstellingenDAO.class.getName());
+	
+	
 //****************LAAT ALLE VOORSTELLINGEN ZIEN****************//
 	public Iterable<Voorstelling> findAll() {
 	try (Connection connection = dataSource.getConnection();

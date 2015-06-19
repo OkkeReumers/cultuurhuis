@@ -27,8 +27,8 @@ void setDataSource(DataSource dataSource) {
 protected void doGet(HttpServletRequest request, HttpServletResponse response)
 throws ServletException, IOException {
 	try {
-		request.setAttribute("pizza",
-			voorstellingenDAO.read(Integer.parseInt(request.getParameter("id"))));
+		request.setAttribute("voorstelling",
+			voorstellingenDAO.read(Integer.parseInt(request.getParameter("voorstellingid"))));
 	} catch (NumberFormatException ex) { // request param bevat geen getal
 		request.setAttribute("fout", "Nummer niet correct");
 	}
