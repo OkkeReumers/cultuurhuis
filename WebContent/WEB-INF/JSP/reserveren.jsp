@@ -29,19 +29,68 @@
 				dateStyle='short' timeStyle='short' /></dd>
 		<dt>Prijs:</dt><dd>€ ${voorstelling.prijs}</dd>
 		<dt>Vrije Plaatsen:</dt><dd>${voorstelling.vrijeplaatsen}</dd>
-		<dt>Plaatsen:</dt>
-		<dd>
-			<form>
-			<div>
-				<label><span>${fouten.van}</span> <input name='plaatsen'
-					value='${param.plaatsen}' class='plaatsen' autofocus type='number'
-					min='0' required></label></div>
-				<!-- de invoervakken client sided valideren -->
+		
+<%-- 			<c:url var="urlsubmit" value="/reserveren.htm">
+				<c:param name="voorstellingID" value="${voorstelling.id}" />
+			</c:url> --%>
+			
+			<form name="reserveerform" method="post"  <%-- action="${urlsubmit}" --%>>
 				<div>
-				<input type='submit' value='Reserveren' class='reserveren'>
+					<label>Plaatsen:<span>${fouten.aantal}</span><input
+						name="aantal" type="number" min='1'
+						max='${voorstelling.vrijeplaatsen}' autofocus value='${aantal}' required /></label>
+				</div>
+				<div>
+					<input name="reserveerknop" type="submit" value="Reserveren" />
 				</div>
 			</form>
-		</dd>
 	</dl>
+	
+	
+	
+<%-- 	
+	<c:if test='${not empty voorstellingInMandje}'>
+		<table>
+			<thead>
+				<tr>
+					<th>Datum</th>
+					<th>Titel</th>
+					<th>Uitvoerders</th>
+					<th>Prijs</th>
+					<th>Plaatsen</th>
+					<th>Verwijderen</th>
+			</thead>
+			<c:forEach var='voorstelling' items='${voorstellingInMandje}'>
+				<tbody>
+					<tr>
+						<td><fmt:formatDate value="${voorstelling.datum}" type="both"
+								dateStyle='short' timeStyle='short' /></td>
+						<td>${voorstelling.titel }</td>
+						<td>${voorstelling.uitvoerders }</td>
+						<td>€ ${voorstelling.prijs }</td>
+						<td>${voorstelling.vrijeplaatsen }</td>
+						<c:if test='${voorstelling.vrijeplaatsen > 0}'>
+							<td><c:url value='/reserveren.htm' var='reserverenURL'>
+									<c:param name='voorstellingid' value="${voorstelling.id}" />
+								</c:url> <a href="<c:out value='${reserverenURL}'/>">Reserveren</a></td>
+						</c:if>
+					</tr>
+				</tbody>
+			</c:forEach>
+		</table>
+	</c:if>
+	
+	 --%>
+	
+	
+	<script>
+		document.getElementById('reserveerform').onsubmit = function() {
+			document.getElementById('reserveerknop').disabled = true;
+		};
+	</script>
 </body>
 </html>
+
+
+
+
