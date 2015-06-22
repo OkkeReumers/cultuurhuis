@@ -16,6 +16,7 @@
 		</h1>
 	</header>
 	<vdab:menu />
+	<vdab:menugenre />
 	<c:if test='${not empty voorstellingengenre}'> <!-- tabel alleen laten zien als er iets in voorstellingengenre zit, dus niet bij de beginpagina -->
 		<table>
 			<thead>

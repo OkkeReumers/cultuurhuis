@@ -15,12 +15,7 @@
 				src="<c:url value='/images/mandje.png'/>" alt="mandje logo" />
 		</h1>
 	</header>
-	<menu>
-		<ul>
-			<li><c:url value='/index.htm' var='indexURL'></c:url> <a
-				href="<c:out value='${indexURL}'/>">Voorstellingen</a></li>
-		</ul>
-	</menu>
+<vdab:menu/>
 	<c:if test='${not empty voorstellingInMandje}'>
 		<table>
 			<thead>
@@ -41,15 +36,13 @@
 						<td>${voorstelling.uitvoerders }</td>
 						<td>€ ${voorstelling.prijs }</td>
 						<td>${voorstelling.vrijeplaatsen }</td>
-						<c:if test='${voorstelling.vrijeplaatsen > 0}'>
-							<td><c:url value='/reserveren.htm' var='reserverenURL'>
-									<c:param name='voorstellingid' value="${voorstelling.id}" />
-								</c:url> <a href="<c:out value='${reserverenURL}'/>">Reserveren</a></td>
-						</c:if>
+						<td><label><input type='checkbox' name='id'
+							value='${voorstelling.id}'> <c:out value='${voorstelling.titel}' /></label></td>
 					</tr>
 				</tbody>
 			</c:forEach>
 		</table>
+		<p>Te betalen:
 	</c:if>
 </body>
 </html>

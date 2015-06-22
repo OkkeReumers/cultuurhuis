@@ -13,7 +13,14 @@ http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd'>
 		</path>
 	</tag-file>
 	
-		<tag-file>
+	<tag-file>
+		<name>menugenre</name>
+		<path>
+			/WEB-INF/tags/vdab/menugenre.tag
+		</path>
+	</tag-file>
+	
+	<tag-file>
 		<name>menu</name>
 		<path>
 			/WEB-INF/tags/vdab/menu.tag

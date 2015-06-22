@@ -32,6 +32,13 @@ nav li a:hover {
 	font-weight: bold;
 }
 
+nav#menu ul {
+	background-color: #FFFFFF;
+}
+nav#menu li a {
+	color: #A1C1BE;
+}
+
 table {
 	width: 100%;
 	font-weight: normal;
@@ -72,26 +79,3 @@ body > dl > dd {
 	margin-top: 20px;
 }
 
-
-menu {
-	background-color: #A1C1BE;
-}
-
-menu ul {
-	margin-left: -40px;
-}
-menu li {
-	display: inline;
-	margin-left: -40px;
-}
-
-menu li a {
-	color: white;
-	padding-left: 0.5em;
-	vertical-align: middle;
-}
-
-menu li a:hover {
-	color: #59554E;
-	font-weight: bold;
-}

@@ -2,7 +2,6 @@ package be.vdab.servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -30,6 +29,7 @@ void setDataSource(DataSource dataSource) {
 	voorstellingenDAO.setDataSource(dataSource); 
 }
 
+//VOORSTELLINGEN UIT DE MANDJESLIST OPHALEN
 @Override
 protected void doGet(HttpServletRequest request, HttpServletResponse response)
 throws ServletException, IOException {
@@ -44,28 +44,10 @@ throws ServletException, IOException {
 	}
 	request.setAttribute("voorstellingInMandje", voorstellingInMandje); 
 	}
-
 	}
 	request.getRequestDispatcher(VIEW).forward(request, response);
 	}
 
 
 
-//@Override
-//protected void doPost(HttpServletRequest request,HttpServletResponse response)
-//		throws ServletException, IOException {
-//	if (request.getParameterValues("voorstellingid") != null) {
-//		HttpSession session = request.getSession(); 
-//		@SuppressWarnings("unchecked")
-//		Set<Integer> mandje = (Set<Integer>)session.getAttribute(MANDJE); 
-//		if (mandje == null) { 
-//			mandje = new LinkedHashSet<>(); 
-//		}
-//		for (String voorstellingid : request.getParameterValues("voorstellingid")) {
-//			mandje.add(Integer.parseInt(voorstellingid)); 
-//		}
-//		session.setAttribute(MANDJE, mandje); 
-//	}
-//	response.sendRedirect(response.encodeRedirectURL(request.getRequestURI()));
-//}
 }
