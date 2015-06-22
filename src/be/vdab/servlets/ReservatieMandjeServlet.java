@@ -24,6 +24,7 @@ private static final String VIEW = "/WEB-INF/JSP/reservatiemandje.jsp";
 private final transient VoorstellingenDAO voorstellingenDAO = new VoorstellingenDAO();
 private static final String MANDJE = "mandje";
 
+
 @Resource(name = VoorstellingenDAO.JNDI_NAME) 
 void setDataSource(DataSource dataSource) {
 	voorstellingenDAO.setDataSource(dataSource); 

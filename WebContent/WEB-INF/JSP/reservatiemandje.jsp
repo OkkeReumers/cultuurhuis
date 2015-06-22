@@ -15,7 +15,7 @@
 				src="<c:url value='/images/mandje.png'/>" alt="mandje logo" />
 		</h1>
 	</header>
-<vdab:menu/>
+<vdab:menu currentpage="mandje"/>
 	<c:if test='${not empty voorstellingInMandje}'>
 		<table>
 			<thead>
@@ -37,7 +37,7 @@
 						<td>€ ${voorstelling.prijs }</td>
 						<td>${voorstelling.vrijeplaatsen }</td>
 						<td><label><input type='checkbox' name='id'
-							value='${voorstelling.id}'> <c:out value='${voorstelling.titel}' /></label></td>
+							value='${voorstelling.id}'></label></td>
 					</tr>
 				</tbody>
 			</c:forEach>

@@ -2,7 +2,6 @@ package be.vdab.servlets;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -53,7 +52,6 @@ public class IndexServlet extends HttpServlet {
 			}
 		}
 		request.setAttribute("fouten", fouten);
-		request.setAttribute("nu", Calendar.getInstance().getTime());
 		request.getRequestDispatcher(VIEW).forward(request, response);
 	}
 

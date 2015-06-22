@@ -14,7 +14,7 @@
 				src="<c:url value='/images/reserveren.png'/>" alt="reserveren logo" />
 		</h1>
 	</header>
-<vdab:menu/>
+<vdab:menu currentpage="reserveren"/>
 	<dl>
 		<dt>Voorstelling :</dt><dd>${voorstelling.titel}</dd>
 		<dt>Uitvoerders:</dt><dd>${voorstelling.uitvoerders}</dd>
