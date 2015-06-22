@@ -35,14 +35,15 @@
 						<td>${voorstelling.titel }</td>
 						<td>${voorstelling.uitvoerders }</td>
 						<td>€ ${voorstelling.prijs }</td>
-						<td>${voorstelling.vrijeplaatsen }</td>
+						<td>${aantal }</td>
 						<td><label><input type='checkbox' name='id'
 							value='${voorstelling.id}'></label></td>
 					</tr>
 				</tbody>
 			</c:forEach>
 		</table>
-		<p>Te betalen:
+		Te betalen: &euro; <fmt:formatNumber type="number"
+								minFractionDigits="2" value="${som}" />
 	</c:if>
 </body>
 </html>

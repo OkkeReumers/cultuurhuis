@@ -79,3 +79,6 @@ body > dl > dd {
 	margin-top: 20px;
 }
 
+form#reserveerform span{
+	color: red;
+}

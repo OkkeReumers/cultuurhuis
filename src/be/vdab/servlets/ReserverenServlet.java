@@ -14,6 +14,9 @@ import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import be.vdab.dao.VoorstellingenDAO;
+import be.vdab.entities.Voorstelling;
+
+
 
 @WebServlet("/reserveren.htm")
 public class ReserverenServlet extends HttpServlet {
@@ -43,25 +46,34 @@ throws ServletException, IOException {
 	request.getRequestDispatcher(VIEW).forward(request, response);
 	}
 
-
 @Override
 protected void doPost(HttpServletRequest request,HttpServletResponse response)
 		throws ServletException, IOException {
-	
-	
-//	VOORSTELLING MET DEZE ID IN EEN LIST MANDJE STEKEN
+	HttpSession session = request.getSession();
 	if (request.getParameterValues("voorstellingid") != null) {
-		HttpSession session = request.getSession(); 
-		@SuppressWarnings("unchecked")
-		Set<Integer> mandje = (Set<Integer>)session.getAttribute(MANDJE); 
-		if (mandje == null) { 
-			mandje = new LinkedHashSet<>(); 
+		
+		Voorstelling voorstelling = voorstellingenDAO.read(Integer.parseInt(request.getParameter("voorstellingid")));
+		int aantalPlaatsen=Integer.parseInt( request.getParameter("aantalPlaatsen"));
+		if (aantalPlaatsen >= 1 && aantalPlaatsen<= voorstelling.getVrijeplaatsen()) {
+			@SuppressWarnings("unchecked")
+			Set<Integer> mandje = (Set<Integer>)session.getAttribute(MANDJE); 
+			if (mandje == null) { 
+				mandje = new LinkedHashSet<>(); 
+			}
+			for (String voorstellingid : request.getParameterValues("voorstellingid")) {
+				mandje.add(Integer.parseInt(voorstellingid)); 
+				session.setAttribute(MANDJE, mandje);
+				response.sendRedirect(String.format(REDIRECT_URL, request.getContextPath()));
+			} 
+
+		}else{
+			request.setAttribute("voorstelling",
+					voorstellingenDAO.read(Integer.parseInt(request.getParameter("voorstellingid"))));
+			request.setAttribute("fout", "Tik een getal tussen 1 en "+voorstelling.getVrijeplaatsen());	
+			request.getRequestDispatcher(VIEW).forward(request, response);
 		}
-		for (String voorstellingid : request.getParameterValues("voorstellingid")) {
-			mandje.add(Integer.parseInt(voorstellingid)); 
-		}
-		session.setAttribute(MANDJE, mandje); 
 	}
-	response.sendRedirect(String.format(REDIRECT_URL, request.getContextPath()));
 }
 }
+
+

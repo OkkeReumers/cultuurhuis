@@ -54,4 +54,5 @@ public class Voorstelling implements Serializable {
 		return vrijeplaatsen;
 	}	
 	
+	
 }

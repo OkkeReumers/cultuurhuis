@@ -24,11 +24,11 @@
 		<dt>Prijs:</dt><dd>€ ${voorstelling.prijs}</dd>
 		<dt>Vrije Plaatsen:</dt><dd>${voorstelling.vrijeplaatsen}</dd>
 			
-			<form name="reserveerform" method="post">
+			<form name="reserveerform" method="post" id="reserveerform">
 				<div>
-					<label>Plaatsen:<span>${fouten.aantal}</span><input
-						name="aantal" type="number" min='1'
-						max='${voorstelling.vrijeplaatsen}' autofocus value='${aantal}' required /></label>
+					<label>Plaatsen:<span>${fout}</span><input
+						name="aantalPlaatsen" type="number" min='1'
+						 max='${voorstelling.vrijeplaatsen}' autofocus value='${aantalPlaatsen}' required /></label>
 				</div>
 				<div>
 					<input name="reserveerknop" type="submit" value="Reserveren" />
