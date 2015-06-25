@@ -28,7 +28,7 @@
 				<div>
 					<label>Plaatsen:<span>${fout}</span><input
 						name="aantalPlaatsen" type="number" min='1'
-						 max='${voorstelling.vrijeplaatsen}' autofocus value='${aantalPlaatsen}' required /></label>
+						 max='${voorstelling.vrijeplaatsen}'  value='${aantalPlaatsen}' autofocus required /></label>
 				</div>
 				<div>
 					<input name="reserveerknop" type="submit" value="Reserveren" />

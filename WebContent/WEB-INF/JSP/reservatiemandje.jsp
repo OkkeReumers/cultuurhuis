@@ -16,7 +16,8 @@
 		</h1>
 	</header>
 <vdab:menu currentpage="mandje"/>
-	<c:if test='${not empty voorstellingInMandje}'>
+	<c:if test='${not empty mandje}'>
+	<form method="post" id="verwijder">
 		<table>
 			<thead>
 				<tr>
@@ -25,25 +26,26 @@
 					<th>Uitvoerders</th>
 					<th>Prijs</th>
 					<th>Plaatsen</th>
-					<th>Verwijderen</th>
+					<th><input name="verwijderknop" type="submit" value="Verwijderen" /></th>
 			</thead>
-			<c:forEach var='voorstelling' items='${voorstellingInMandje}'>
+			<c:forEach var='reservatie' items='${reservaties}'>
 				<tbody>
 					<tr>
-						<td><fmt:formatDate value="${voorstelling.datum}" type="both"
+						<td><fmt:formatDate value="${reservatie.voorstelling.datum}" type="both"
 								dateStyle='short' timeStyle='short' /></td>
-						<td>${voorstelling.titel }</td>
-						<td>${voorstelling.uitvoerders }</td>
-						<td>€ ${voorstelling.prijs }</td>
-						<td>${aantal }</td>
-						<td><label><input type='checkbox' name='id'
-							value='${voorstelling.id}'></label></td>
+						<td>${reservatie.voorstelling.titel }</td>
+						<td>${reservatie.voorstelling.uitvoerders }</td>
+						<td>€ ${reservatie.voorstelling.prijs }</td>
+						<td>${reservatie.aantalPlaatsen }</td>
+						<td><label><input type='checkbox' name='verwijder'
+							value='${reservatie.voorstelling.id}'></label></td>
 					</tr>
 				</tbody>
 			</c:forEach>
 		</table>
+		</form>
 		Te betalen: &euro; <fmt:formatNumber type="number"
-								minFractionDigits="2" value="${som}" />
+								minFractionDigits="2" value="${totaal}" />
 	</c:if>
 </body>
 </html>
