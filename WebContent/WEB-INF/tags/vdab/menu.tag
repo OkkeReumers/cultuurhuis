@@ -8,9 +8,11 @@
 				href="<c:out value='${indexURL}'/>">Voorstellingen</a></li>
 		</c:if>
 		<c:if test='${not empty mandje}'>
-			<li><c:url value='/bevestiging.htm' var='bevestigingURL'></c:url>
-				<a href="<c:out value='${bevestingingURL }'/>">Bevestiging
-					reservatie</a></li>
+			<c:if test="${currentpage != 'bevestiging' }">
+			<li><c:url value='/bevestiging.htm'
+						var='bevestigingURL'></c:url> <a
+					href="<c:out value='${bevestigingURL }'/>">Bevestiging reservatie</a></li>
+					</c:if>
 			<c:if test="${currentpage != 'mandje'}">
 				<li><c:url value='/reservatiemandje.htm'
 						var='reservatiemandjeURL'></c:url> <a
