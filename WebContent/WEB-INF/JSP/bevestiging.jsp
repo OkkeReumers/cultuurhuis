@@ -19,34 +19,29 @@
 	<form name="gebruikerform" method="post" id="gebruikerform">
 		<div>
 			<label>Gebruikersnaam:<input
-				name="gebruikersnaam" autofocus required /></label>
+				type="text" name="gebruikersnaam" value='${gebruikersnaam }' autofocus required <c:if test="${not empty klant}">  disabled </c:if> /></label>
 		</div>
 		<div>
-			<label>Paswoord:<input name="paswoord"
-				required /></label>
+			<label>Paswoord:<input name="paswoord" type="password" required <c:if test="${not empty klant}">  disabled </c:if> /></label>
 		</div>
 		<div>
-			<input name="zoekMeOpKnop" type="submit" value="Zoek me op" />
+			<input name="zoekMeOpKnop" type="submit" value="Zoek me op" <c:if test="${not empty klant}">  disabled </c:if>/>
 		</div>
 	</form>
-
+		
 		
 	<form action="nieuweklant.htm">
-		<input type="submit" value="Ik ben nieuw">
+		<input type="submit" value="Ik ben nieuw" <c:if test="${not empty klant}">  disabled </c:if>>
 	</form>
 	
-	
-	<div>${klant.voornaam} ${klant.familienaam } ${klant.straat }
-		${klant.huisnr } ${klant.postcode } ${klant.gemeente }
-		<c:if test='${empty klant }'>
-			Verkeerde gebruikersnaam of paswoord
-		</c:if>
-	</div>	
+	<c:if test="${not empty klant}">${klant.toString()}</c:if>
+	<c:if test="${not empty fout}">${fout}</c:if>
+
 	
 	
 	<h2>Stap 2: Bevestigen</h2>
 	<form action="http://google.com">
-		<input type="submit" value="Bevestigen">
+		<input type="submit" value="Bevestigen" <c:if test="${empty klant}">  disabled </c:if>/>
 	</form>
 </body>
 </html>

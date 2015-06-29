@@ -3,7 +3,6 @@ package be.vdab.servlets;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +19,6 @@ import javax.sql.DataSource;
 
 import be.vdab.dao.VoorstellingenDAO;
 import be.vdab.entities.Reservatie;
-import be.vdab.entities.Voorstelling;
 
 @WebServlet("/reservatiemandje.htm")
 public class ReservatieMandjeServlet extends HttpServlet {

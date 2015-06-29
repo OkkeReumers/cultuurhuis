@@ -64,5 +64,10 @@ public class Klant implements Serializable {
 	public String getPaswoord() {
 		return paswoord;
 	}
+	
+	@Override 
+	public String toString() { 
+		return voornaam + " " + familienaam + " " + straat + " " + huisnr + " " + postcode + " " + gemeente ;
+		}
 
 }

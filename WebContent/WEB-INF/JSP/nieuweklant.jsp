@@ -17,45 +17,52 @@
 	</header>
 	<vdab:menu currentpage="nieuweklant" />
 	<form name="nieuweklantform" method="post" id="nieuweklantform">
-		<div>
-			<label>Voornaam:<span>${fout}</span><input
-				name="voornaam" autofocus required /></label>
-		</div>
-		<div>
-			<label>Familienaam:<span>${fout}</span><input
-				name="familienaam" required /></label>
-		</div>
-		<div>
-			<label>Straat:<span>${fout}</span><input
-				name="straat" required /></label>
-		</div>
-		<div>
-			<label>Huisnr:<span>${fout}</span><input
-				name="huisnr" required /></label>
-		</div>
-		<div>
-			<label>Postcode:<span>${fout}</span><input
-				name="postcode" required /></label>
-		</div>
-		<div>
-			<label>Gemeente:<span>${fout}</span><input
-				name="gemeente" required /></label>
-		</div>
-		<div>
-			<label>Gebruikersnaam:<span>${fout}</span><input
-				name="gebruikersnaam" required /></label>
-		</div>
-		<div>
-			<label>Paswoord:<span>${fout}</span><input
-				name="paswoord" required /></label>
-		</div>
-		<div>
-			<label>Herhaal paswoord:<span>${fout}</span><input
-				name="herhaalpaswoord" required /></label>
-		</div>
-		<div>
+<dl>
+			<dt>Voornaam:</dt>
+			<dd>
+				<input type="text" name="voornaam" required="required" autofocus>
+			</dd>
+			<dt>Familienaam:</dt>
+			<dd>
+				<input type="text" name="familienaam" ><!-- required="required" -->
+			</dd>
+			<dt>Straat:</dt>
+			<dd>
+				<input type="text" name="straat" required="required">
+			</dd>
+			<dt>Huisnr:</dt>
+			<dd>
+				<input type="text" name="huisnr" required="required">
+			</dd>
+			<dt>Postcode:</dt>
+			<dd>
+				<input type="text" name="postcode" required="required">
+			</dd>
+			<dt>Gemeente:</dt>
+			<dd>
+				<input type="text" name="gemeente" required="required">
+			</dd>
+			<dt>Gebruikersnaam:</dt>
+			<dd>
+				<input type="text" name="gebruikersnaam" required="required">
+			</dd>
+			<dt>Paswoord:</dt>
+			<dd>
+				<input type="password" name="paswoord" required="required">
+			</dd>
+			<dt>Herhaal paswoord:</dt>
+			<dd>
+				<input type="password" name="herhaaldPaswoord" required="required">
+			</dd>
+		</dl>
 			<input name="okKnop" type="submit" value="OK" />
-		</div>
 	</form>
+	<c:if test="${not empty fouten}">
+		<ul>
+			<c:forEach items="${fouten}" var="fout">
+				<li>${fout}</li>
+			</c:forEach>
+		</ul>
+	</c:if>
 </body>
 </html>
