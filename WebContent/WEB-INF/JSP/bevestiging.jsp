@@ -18,20 +18,32 @@
 	<h2>Stap 1: wie ben je ?</h2>
 	<form name="gebruikerform" method="post" id="gebruikerform">
 		<div>
-			<label>Gebruikersnaam:<span>${fout}</span><input
+			<label>Gebruikersnaam:<input
 				name="gebruikersnaam" autofocus required /></label>
 		</div>
 		<div>
-			<label>Paswoord:<span>${fout}</span><input name="paswoord"
+			<label>Paswoord:<input name="paswoord"
 				required /></label>
 		</div>
 		<div>
 			<input name="zoekMeOpKnop" type="submit" value="Zoek me op" />
 		</div>
 	</form>
+
+		
 	<form action="nieuweklant.htm">
 		<input type="submit" value="Ik ben nieuw">
 	</form>
+	
+	
+	<div>${klant.voornaam} ${klant.familienaam } ${klant.straat }
+		${klant.huisnr } ${klant.postcode } ${klant.gemeente }
+		<c:if test='${empty klant }'>
+			Verkeerde gebruikersnaam of paswoord
+		</c:if>
+	</div>	
+	
+	
 	<h2>Stap 2: Bevestigen</h2>
 	<form action="http://google.com">
 		<input type="submit" value="Bevestigen">

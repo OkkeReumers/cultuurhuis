@@ -2,11 +2,7 @@ package be.vdab.servlets;
 
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.Map;
-import java.util.Set;
-
 import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,6 +36,7 @@ throws ServletException, IOException {
 	
 	Voorstelling voorstelling = voorstellingenDAO.read(Integer.parseInt(request.getParameter("voorstellingid")));
 	int voorstellingid = voorstelling.getId();
+	
 //	VOORSTELLING MET HET JUISTE ID LATEN ZIEN
 		request.setAttribute("voorstelling",voorstelling);
 
