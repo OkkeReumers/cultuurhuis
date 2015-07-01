@@ -40,7 +40,7 @@
 	
 	
 	<h2>Stap 2: Bevestigen</h2>
-	<form action="http://google.com">
+	<form action="overzicht.htm">
 		<input type="submit" value="Bevestigen" <c:if test="${empty klant}">  disabled </c:if>/>
 	</form>
 </body>
