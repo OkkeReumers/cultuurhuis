@@ -28,8 +28,5 @@ public class Genre implements Serializable {
 	public void setNaam(String naam) {
 		this.naam = naam;
 	}
-	
-	
-	
-	
+
 }

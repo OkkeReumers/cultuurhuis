@@ -17,7 +17,7 @@
 	</header>
 	<vdab:menu currentpage="overzicht" />
 	<h2>Gelukte reserveringen</h2>
-	<table>
+	<table id="tabel">
 		<thead>
 			<tr>
 				<th>Datum</th>
@@ -29,8 +29,14 @@
 		</thead>
 		<tbody>
 			<c:forEach var='gelukt' items='${geluktmandje}'>
-				
-				
+				<tr>
+					<td><fmt:formatDate value="${gelukt.voorstelling.datum}"
+							type="both" dateStyle='short' timeStyle='short' /></td>
+					<td>${gelukt.voorstelling.titel }</td>
+					<td>${gelukt.voorstelling.uitvoerders }</td>
+					<td>${gelukt.voorstelling.prijs }</td>
+					<td>${gelukt.aantalPlaatsen }</td>
+				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
@@ -49,17 +55,16 @@
 		</thead>
 		<tbody>
 		<tbody>
-			<c:forEach var='mislukt' items='${misluktereservatie}'>
-
+			<c:forEach var='mislukt' items='${misluktmandje}'>
 				<tr>
-					<td><fmt:formatDate value="${mislukt.reservatie.datum}"
+					<td><fmt:formatDate value="${mislukt.voorstelling.datum}"
 							type="both" dateStyle='short' timeStyle='short' /></td>
-					<td>${reservatie.voorstelling.titel }</td>
-					<td>${reservatie.voorstelling.uitvoerders }</td>
-					<td>€ ${reservatie.voorstelling.prijs }</td>
-					<td>${reservatie.aantalPlaatsen }</td>
+					<td>${mislukt.voorstelling.titel }</td>
+					<td>${mislukt.voorstelling.uitvoerders }</td>
+					<td>${mislukt.voorstelling.prijs }</td>
+					<td>${mislukt.aantalPlaatsen }</td>
+					<td>${mislukt.voorstelling.vrijePlaatsen }</td>
 				</tr>
-
 			</c:forEach>
 		</tbody>
 		</tbody>

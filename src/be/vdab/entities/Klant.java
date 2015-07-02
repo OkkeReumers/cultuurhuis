@@ -16,8 +16,8 @@ public class Klant implements Serializable {
 	private String paswoord;
 
 	public Klant(int id, String voornaam, String familienaam, String straat,
-			String huisnr, String postcode, String gemeente, String gebruikersnaam,
-			String passwoord) {
+			String huisnr, String postcode, String gemeente,
+			String gebruikersnaam, String passwoord) {
 		this.id = id;
 		this.voornaam = voornaam;
 		this.familienaam = familienaam;
@@ -64,10 +64,11 @@ public class Klant implements Serializable {
 	public String getPaswoord() {
 		return paswoord;
 	}
-	
-	@Override 
-	public String toString() { 
-		return voornaam + " " + familienaam + " " + straat + " " + huisnr + " " + postcode + " " + gemeente ;
-		}
+
+	@Override
+	public String toString() {
+		return voornaam + " " + familienaam + " " + straat + " " + huisnr + " "
+				+ postcode + " " + gemeente;
+	}
 
 }

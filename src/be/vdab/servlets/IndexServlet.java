@@ -23,29 +23,27 @@ public class IndexServlet extends HttpServlet {
 	private final transient GenresDAO genresDAO = new GenresDAO();
 	private final transient VoorstellingenDAO voorstellingenDAO = new VoorstellingenDAO();
 
-	@Resource(name = GenresDAO.JNDI_NAME) 
+	@Resource(name = GenresDAO.JNDI_NAME)
 	void setDataSource(DataSource dataSource) {
-	genresDAO.setDataSource(dataSource); 
-	voorstellingenDAO.setDataSource(dataSource);
+		genresDAO.setDataSource(dataSource);
+		voorstellingenDAO.setDataSource(dataSource);
 	}
-	
 
-
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-			throws ServletException, IOException {
-		request.setAttribute("genres", genresDAO.findAll()); 						//alle items die via genresDAO gevonden worden in de database doorgeven aan de jsp		
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("genres", genresDAO.findAll()); 
 		request.setAttribute("voorstellingen", voorstellingenDAO.findAll());
 		List<String> fouten = new ArrayList<String>();
 		if (request.getParameterValues("genreid") != null) {
 			try {
-				int genreid =Integer.parseInt(request.getParameter("genreid"));
+				int genreid = Integer.parseInt(request.getParameter("genreid"));
 				List<Voorstelling> voorstellinglijstgenre = voorstellingenDAO
 						.findAllByGenre(genreid);
-				if (voorstellinglijstgenre.isEmpty()) {			
+				if (voorstellinglijstgenre.isEmpty()) {
 					fouten.add("Geen voorstellingen");
 				} else {
-					request.setAttribute("voorstellingengenre", voorstellinglijstgenre);
+					request.setAttribute("voorstellingengenre",
+							voorstellinglijstgenre);
 				}
 			} catch (NumberFormatException ex) {
 				fouten.add("Ongeldig genre.");

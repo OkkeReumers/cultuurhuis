@@ -5,7 +5,8 @@
 <!doctype html>
 <html>
 <head>
-<vdab:head title='Cultuurhuis' />		<!-- tag head inladen -->
+<vdab:head title='Cultuurhuis' />
+<!-- tag head inladen -->
 </head>
 <body>
 	<header>
@@ -15,9 +16,10 @@
 				alt="cultuurhuis logo" />
 		</h1>
 	</header>
-	<vdab:menu currentpage="index"/>
+	<vdab:menu currentpage="index" />
 	<vdab:menugenre />
-	<c:if test='${not empty voorstellingengenre}'> <!-- tabel alleen laten zien als er iets in voorstellingengenre zit, dus niet bij de beginpagina -->
+	<c:if test='${not empty voorstellingengenre}'>
+		<!-- tabel alleen laten zien als er iets in voorstellingengenre zit, dus niet bij de beginpagina -->
 		<table>
 			<thead>
 				<tr>
@@ -38,11 +40,9 @@
 						<td>€ ${voorstelling.prijs }</td>
 						<td>${voorstelling.vrijeplaatsen }</td>
 						<c:if test='${voorstelling.vrijeplaatsen > 0}'>
-						<td>
-						<c:url value='/reserveren.htm' var='reserverenURL'>
-						<c:param name='voorstellingid' value="${voorstelling.id}"/>
-						</c:url>
-						<a href="<c:out value='${reserverenURL}'/>">Reserveren</a></td>
+							<td><c:url value='/reserveren.htm' var='reserverenURL'>
+									<c:param name='voorstellingid' value="${voorstelling.id}" />
+								</c:url> <a href="<c:out value='${reserverenURL}'/>">Reserveren</a></td>
 						</c:if>
 					</tr>
 				</tbody>

@@ -26,7 +26,7 @@ public class GenresDAO extends AbstractDAO {
 			throw new DAOException(ex);
 		}
 	}
-	
+
 	private Genre resultSetGenre(ResultSet resultSet) throws SQLException {
 		return new Genre(resultSet.getInt("id"), resultSet.getString("naam"));
 	}

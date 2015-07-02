@@ -14,9 +14,9 @@ public class Voorstelling implements Serializable {
 	private int genreid;
 	private BigDecimal prijs;
 	private int vrijeplaatsen;
-	
-	public Voorstelling(int id, String titel, String uitvoerders, Timestamp datum,
-			int genreid, BigDecimal prijs, int vrijeplaatsen) {
+
+	public Voorstelling(int id, String titel, String uitvoerders,
+			Timestamp datum, int genreid, BigDecimal prijs, int vrijeplaatsen) {
 		this.id = id;
 		this.titel = titel;
 		this.uitvoerders = uitvoerders;
@@ -25,7 +25,7 @@ public class Voorstelling implements Serializable {
 		this.prijs = prijs;
 		this.vrijeplaatsen = vrijeplaatsen;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -52,7 +52,6 @@ public class Voorstelling implements Serializable {
 
 	public int getVrijeplaatsen() {
 		return vrijeplaatsen;
-	}	
-	
-	
+	}
+
 }

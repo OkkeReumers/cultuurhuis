@@ -91,12 +91,12 @@ public class BevestigingServlet extends HttpServlet {
 
 				session.setAttribute("gelukt", geluktereservatie);
 				session.setAttribute("mislukt", misluktereservatie);
-				mandje.clear();
-				session.setAttribute("mandje", mandje);
-				response.sendRedirect(response.encodeURL(String.format(
-						REDIRECT_OVERZICHT, request.getContextPath())));
 
 			}
+			mandje.clear();
+			session.setAttribute("mandje", mandje);
+			response.sendRedirect(response.encodeURL(String.format(
+					REDIRECT_OVERZICHT, request.getContextPath())));
 		}
 
 	}

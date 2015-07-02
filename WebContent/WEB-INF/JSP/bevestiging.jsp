@@ -18,33 +18,38 @@
 	<h2>Stap 1: wie ben je ?</h2>
 	<form name="gebruikerform" method="post" id="gebruikerform">
 		<div>
-			<label>Gebruikersnaam:<input
-				type="text" name="gebruikersnaam" value='${gebruikersnaam }' autofocus required <c:if test="${not empty klant}">  disabled </c:if> /></label>
+			<label>Gebruikersnaam:<input type="text"
+				name="gebruikersnaam" value='${gebruikersnaam }' autofocus required
+				<c:if test="${not empty klant}">  disabled </c:if> /></label>
 		</div>
 		<div>
-			<label>Paswoord:<input name="paswoord" type="password" required <c:if test="${not empty klant}">  disabled </c:if> /></label>
+			<label>Paswoord:<input name="paswoord" type="password"
+				required <c:if test="${not empty klant}">  disabled </c:if> /></label>
 		</div>
 		<div>
-			<input name="zoekMeOpKnop" type="submit" value="Zoek me op" <c:if test="${not empty klant}">  disabled </c:if>/>
+			<input name="zoekMeOpKnop" type="submit" value="Zoek me op"
+				<c:if test="${not empty klant}">  disabled </c:if> />
 		</div>
 	</form>
-		
-		
+
+
 	<form action="nieuweklant.htm">
-		<input name="nieuwKnop" type="submit" value="Ik ben nieuw" <c:if test="${not empty klant}">  disabled </c:if>>
+		<input name="nieuwKnop" type="submit" value="Ik ben nieuw"
+			<c:if test="${not empty klant}">  disabled </c:if>>
 	</form>
-	
+
 	<c:if test="${not empty klant}">${klant.toString()}</c:if>
 	<c:if test="${not empty fout}">${fout}</c:if>
 
-	
-	
+
+
 	<h2>Stap 2: Bevestigen</h2>
 	<form name="bevestiging" method="post">
-		<input type="submit" value="Bevestigen" name="bevestigKnop" <c:if test="${empty klant}">  disabled </c:if>/>
+		<input type="submit" value="Bevestigen" name="bevestigKnop"
+			<c:if test="${empty klant}">  disabled </c:if> />
 	</form>
-	
-		<script>
+
+	<script>
 		document.getElementById('gebruikerform').onsubmit = function() {
 			document.getElementByName('zoekMeOpKnop').disabled = true;
 			document.getElementByName('nieuwKnop').disabled = true;

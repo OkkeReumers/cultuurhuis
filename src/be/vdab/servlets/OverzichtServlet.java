@@ -35,17 +35,22 @@ public class OverzichtServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-HttpSession session = request.getSession();
-		
+		HttpSession session = request.getSession();
+
 		if (session != null) {
 			@SuppressWarnings("unchecked")
-			
 			List<Reservatie> geluktmandje = (List<Reservatie>) session
 					.getAttribute("gelukt");
 
-
-			if (geluktmandje!=null) {
+			if (geluktmandje != null) {
 				request.setAttribute("geluktmandje", geluktmandje);
+			}
+
+			List<Reservatie> misluktmandje = (List<Reservatie>) session
+					.getAttribute("mislukt");
+
+			if (misluktmandje != null) {
+				request.setAttribute("misluktmandje", misluktmandje);
 			}
 
 		}

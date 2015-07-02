@@ -65,8 +65,7 @@ public class VoorstellingenDAO extends AbstractDAO {
 
 	}
 
-	// ****************DE GEGEVENS VAN DE GEKOZEN VOORSTELLING
-	// OPHALEN****************//
+	// ****************DE GEGEVENS VAN DE GEKOZEN VOORSTELLING OPHALEN****************//
 	public Voorstelling read(int voorstellingid) {
 		try (Connection connection = dataSource.getConnection();
 				PreparedStatement statement = connection

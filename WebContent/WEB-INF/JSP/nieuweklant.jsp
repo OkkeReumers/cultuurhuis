@@ -17,14 +17,15 @@
 	</header>
 	<vdab:menu currentpage="nieuweklant" />
 	<form name="nieuweklantform" method="post" id="nieuweklantform">
-<dl>
+		<dl>
 			<dt>Voornaam:</dt>
 			<dd>
 				<input type="text" name="voornaam" required="required" autofocus>
 			</dd>
 			<dt>Familienaam:</dt>
 			<dd>
-				<input type="text" name="familienaam" ><!-- required="required" -->
+				<input type="text" name="familienaam">
+				<!-- required="required" -->
 			</dd>
 			<dt>Straat:</dt>
 			<dd>
@@ -55,7 +56,7 @@
 				<input type="password" name="herhaaldPaswoord" required="required">
 			</dd>
 		</dl>
-			<input name="okKnop" type="submit" value="OK" />
+		<input name="okKnop" type="submit" value="OK" />
 	</form>
 	<c:if test="${not empty fouten}">
 		<ul>
