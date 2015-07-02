@@ -11,7 +11,8 @@ public class KlantenDAO extends AbstractDAO {
 	private static final String BESTAAT_KLANT = "SELECT id FROM klanten WHERE gebruikersnaam = ? ";
 	private static final String INSERT = "INSERT INTO klanten(Voornaam,Familienaam,Straat,HuisNr,Postcode,Gemeente,GebruikersNaam,Paswoord) values(?,?,?,?,?,?,?,?)";
 
-	// ****************LAAT DE KLANT MET PASSENDE GEBRUIKERSNAAM EN WACHTWOORD ZIEN****************//
+	// ****************LAAT DE KLANT MET PASSENDE GEBRUIKERSNAAM EN WACHTWOORD
+	// ZIEN****************//
 	public Klant findByGebruikersnaam(String gebruikersnaam, String paswoord) {
 
 		try (Connection connection = dataSource.getConnection();

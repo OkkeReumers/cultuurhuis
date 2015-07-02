@@ -28,7 +28,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var='gelukt' items='${geluktmandje}'>
+			<c:forEach var='gelukt' items='${gelukt}'>
 				<tr>
 					<td><fmt:formatDate value="${gelukt.voorstelling.datum}"
 							type="both" dateStyle='short' timeStyle='short' /></td>
@@ -55,7 +55,7 @@
 		</thead>
 		<tbody>
 		<tbody>
-			<c:forEach var='mislukt' items='${misluktmandje}'>
+			<c:forEach var='mislukt' items='${mislukt}'>
 				<tr>
 					<td><fmt:formatDate value="${mislukt.voorstelling.datum}"
 							type="both" dateStyle='short' timeStyle='short' /></td>
