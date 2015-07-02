@@ -31,7 +31,7 @@
 		
 		
 	<form action="nieuweklant.htm">
-		<input type="submit" value="Ik ben nieuw" <c:if test="${not empty klant}">  disabled </c:if>>
+		<input name="nieuwKnop" type="submit" value="Ik ben nieuw" <c:if test="${not empty klant}">  disabled </c:if>>
 	</form>
 	
 	<c:if test="${not empty klant}">${klant.toString()}</c:if>
@@ -40,9 +40,19 @@
 	
 	
 	<h2>Stap 2: Bevestigen</h2>
-	<form action="overzicht.htm">
-		<input type="submit" value="Bevestigen" <c:if test="${empty klant}">  disabled </c:if>/>
+	<form name="bevestiging" method="post">
+		<input type="submit" value="Bevestigen" name="bevestigKnop" <c:if test="${empty klant}">  disabled </c:if>/>
 	</form>
+	
+		<script>
+		document.getElementById('gebruikerform').onsubmit = function() {
+			document.getElementByName('zoekMeOpKnop').disabled = true;
+			document.getElementByName('nieuwKnop').disabled = true;
+		};
+		document.getElementById('bevestiging').onsubmit = function() {
+			document.getElementByName('bevestigKnop').disabled = true;
+		};
+	</script>
 </body>
 </html>
 

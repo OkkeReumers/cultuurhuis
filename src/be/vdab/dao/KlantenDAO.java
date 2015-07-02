@@ -11,7 +11,6 @@ public class KlantenDAO extends AbstractDAO {
 	private static final String BESTAAT_KLANT = "SELECT id FROM klanten WHERE gebruikersnaam = ? ";
 	private static final String INSERT = "INSERT INTO klanten(Voornaam,Familienaam,Straat,HuisNr,Postcode,Gemeente,GebruikersNaam,Paswoord) values(?,?,?,?,?,?,?,?)";
 
-
 	
 	//****************LAAT DE KLANT MET PASSENDE GEBRUIKERSNAAM EN WACHTWOORD ZIEN****************//
 	public Klant findByGebruikersnaam(String gebruikersnaam, String paswoord) {
@@ -53,6 +52,7 @@ public class KlantenDAO extends AbstractDAO {
 		
 	}
 	
+	//****************CONTROLEREN OF KLANTE BESTAAT****************//
 	public boolean bestaatKlant(String gebruikersnaam){
 		boolean bestaand=false;
 		try(Connection connection=dataSource.getConnection();
@@ -68,6 +68,7 @@ public class KlantenDAO extends AbstractDAO {
 			throw new DAOException( ex);
 		}
 	}
+
 	
 	
 	public Klant resultSetKlanten(ResultSet resultSet) throws SQLException {

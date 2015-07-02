@@ -28,6 +28,10 @@
 			</tr>
 		</thead>
 		<tbody>
+			<c:forEach var='gelukt' items='${geluktmandje}'>
+				
+				
+			</c:forEach>
 		</tbody>
 	</table>
 
@@ -44,6 +48,20 @@
 			</tr>
 		</thead>
 		<tbody>
+		<tbody>
+			<c:forEach var='mislukt' items='${misluktereservatie}'>
+
+				<tr>
+					<td><fmt:formatDate value="${mislukt.reservatie.datum}"
+							type="both" dateStyle='short' timeStyle='short' /></td>
+					<td>${reservatie.voorstelling.titel }</td>
+					<td>${reservatie.voorstelling.uitvoerders }</td>
+					<td>€ ${reservatie.voorstelling.prijs }</td>
+					<td>${reservatie.aantalPlaatsen }</td>
+				</tr>
+
+			</c:forEach>
+		</tbody>
 		</tbody>
 	</table>
 </body>
