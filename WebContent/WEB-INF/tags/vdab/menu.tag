@@ -8,12 +8,12 @@
 				href="<c:out value='${indexURL}'/>">Voorstellingen</a></li>
 		</c:if>
 		<c:if test='${not empty mandje}'>
-			<c:if test="${currentpage != 'bevestiging' && currentpage != 'overzicht' }">
+			<c:if test="${currentpage != 'bevestiging' && currentpage != 'overzicht' && currentpage != '404' }">
 			<li><c:url value='/bevestiging.htm'
 						var='bevestigingURL'></c:url> <a
 					href="<c:out value='${bevestigingURL }'/>">Bevestiging reservatie</a></li>
 					</c:if>
-			<c:if test="${currentpage != 'mandje' && currentpage != 'overzicht'}">
+			<c:if test="${currentpage != 'mandje' && currentpage != 'overzicht' && currentpage != '404'} ">
 				<li><c:url value='/reservatiemandje.htm'
 						var='reservatiemandjeURL'></c:url> <a
 					href="<c:out value='${reservatiemandjeURL }'/>">Reservatiemandje</a></li>

@@ -11,6 +11,7 @@ import be.vdab.entities.Genre;
 public class GenresDAO extends AbstractDAO {
 	private static final String SELECT_ALL = "Select id,naam from genres ";
 
+	// zoek alle genres op die zich in de database bevinden
 	public Iterable<Genre> findAll() {
 
 		try (Connection connection = dataSource.getConnection();
@@ -27,6 +28,7 @@ public class GenresDAO extends AbstractDAO {
 		}
 	}
 
+	
 	private Genre resultSetGenre(ResultSet resultSet) throws SQLException {
 		return new Genre(resultSet.getInt("id"), resultSet.getString("naam"));
 	}

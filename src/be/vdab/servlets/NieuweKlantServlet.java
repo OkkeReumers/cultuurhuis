@@ -33,6 +33,7 @@ public class NieuweKlantServlet extends HttpServlet {
 		request.getRequestDispatcher(VIEW).forward(request, response);
 	}
 
+	/*Formulier posten, met de foutmeldingen en controles*/
 	@Override
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -80,10 +81,12 @@ public class NieuweKlantServlet extends HttpServlet {
 		if (klantenDAO.bestaatKlant(gebruikersnaam)) {
 			fouten.add("Gebruikersnaam bestaat al");
 		}
+		/* eventuele fouten laten zien*/
 		if (!fouten.isEmpty()) {
 			request.setAttribute("fouten", fouten);
 			request.getRequestDispatcher(VIEW).forward(request, response);
 		} else {
+			/*als alles ok is de klant in de database zetten*/
 			klantenDAO.insert(voornaam, familienaam, straat, huisnr, postcode,
 					gemeente, gebruikersnaam, paswoord);
 			Klant klant = klantenDAO.findByGebruikersnaam(gebruikersnaam,

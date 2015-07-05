@@ -29,6 +29,7 @@ public class IndexServlet extends HttpServlet {
 		voorstellingenDAO.setDataSource(dataSource);
 	}
 
+	/*genre attribuut maken met alle genres die uit de database gelezen worden*/
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		request.setAttribute("genres", genresDAO.findAll()); 
@@ -36,9 +37,11 @@ public class IndexServlet extends HttpServlet {
 		List<String> fouten = new ArrayList<String>();
 		if (request.getParameterValues("genreid") != null) {
 			try {
+				/*per genre de bijpassende voorstellingen*/
 				int genreid = Integer.parseInt(request.getParameter("genreid"));
 				List<Voorstelling> voorstellinglijstgenre = voorstellingenDAO
 						.findAllByGenre(genreid);
+				/*geen voorstellingen van dat genre --> foutmelding*/
 				if (voorstellinglijstgenre.isEmpty()) {
 					fouten.add("Geen voorstellingen");
 				} else {

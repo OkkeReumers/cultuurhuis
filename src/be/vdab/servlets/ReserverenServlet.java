@@ -36,7 +36,7 @@ public class ReserverenServlet extends HttpServlet {
 				.parseInt(request.getParameter("voorstellingid")));
 		int voorstellingid = voorstelling.getId();
 
-		// VOORSTELLING MET HET JUISTE ID LATEN ZIEN
+		// voorstellign met het juiste id laten zien
 		request.setAttribute("voorstelling", voorstelling);
 
 		HttpSession session = request.getSession();
@@ -55,6 +55,7 @@ public class ReserverenServlet extends HttpServlet {
 		request.getRequestDispatcher(VIEW).forward(request, response);
 	}
 
+	/* voorstelling reserveren, zolang aantal plaatsen niet groter is als aantal vrije plaatsen*/
 	@Override
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

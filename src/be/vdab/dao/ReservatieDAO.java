@@ -8,6 +8,10 @@ public class ReservatieDAO extends AbstractDAO {
 	private static final String INSERT = "INSERT INTO reservaties(klantid,voorstellingsid,plaatsen) values(?,?,?)";
 	private static final String UPDATE = "UPDATE voorstellingen SET vrijeplaatsen = ? WHERE id=? ";
 
+	
+	// een bestelling (reservatie in de database plaatsen) eerst updaten we het aantal vrije plaatsen 
+	// en daarna voegen we de reservatie toe. Pas wanneer alle database aanpassingen lukken wordt het effectief 
+	// toegepast.
 	public boolean bestel(int klantId, int voorstellingId, int plaatsen,
 			int vrijePlaatsen) {
 		try (Connection connection = dataSource.getConnection()) {

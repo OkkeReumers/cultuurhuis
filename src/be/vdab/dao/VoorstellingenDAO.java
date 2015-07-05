@@ -26,7 +26,7 @@ public class VoorstellingenDAO extends AbstractDAO {
 	private final static Logger logger = Logger
 			.getLogger(VoorstellingenDAO.class.getName());
 
-	// ****************LAAT ALLE VOORSTELLINGEN ZIEN****************//
+	// laat alle voorstellingen uit de database zien
 	public Iterable<Voorstelling> findAll() {
 		try (Connection connection = dataSource.getConnection();
 				Statement statement = connection.createStatement();
@@ -42,7 +42,7 @@ public class VoorstellingenDAO extends AbstractDAO {
 		}
 	}
 
-	// ****************LAAT ALLE VOORSTELLINGEN PER GENRE ZIEN****************//
+	// haal de voorstellingen per genre uit de database
 	public List<Voorstelling> findAllByGenre(int genreid) {
 		try (Connection connection = dataSource.getConnection();
 				PreparedStatement preparedstatement = connection
@@ -65,7 +65,7 @@ public class VoorstellingenDAO extends AbstractDAO {
 
 	}
 
-	// ****************DE GEGEVENS VAN DE GEKOZEN VOORSTELLING OPHALEN****************//
+	// gegevens van de gekozen voorstelling uit de database oproepen
 	public Voorstelling read(int voorstellingid) {
 		try (Connection connection = dataSource.getConnection();
 				PreparedStatement statement = connection

@@ -32,7 +32,7 @@ public class ReservatieMandjeServlet extends HttpServlet {
 		voorstellingenDAO.setDataSource(dataSource);
 	}
 
-	// VOORSTELLINGEN UIT DE MANDJESLIST OPHALEN
+	// voorstellingen uit het mandje tonen
 	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -47,6 +47,7 @@ public class ReservatieMandjeServlet extends HttpServlet {
 				Reservatie reservatie = new Reservatie(
 						voorstellingenDAO.read(key), mandje.get(key));
 				reservaties.add(reservatie);
+				/* totaalprijs de prijs van de reservatie maal het aantal plaatsen*/
 				totaal = totaal.add(reservatie.getVoorstelling().getPrijs()
 						.multiply(new BigDecimal(mandje.get(key))));
 			}
@@ -56,6 +57,7 @@ public class ReservatieMandjeServlet extends HttpServlet {
 		}
 	}
 
+	/*Voorstellingen verwijderen uit het mandje*/
 	@Override
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

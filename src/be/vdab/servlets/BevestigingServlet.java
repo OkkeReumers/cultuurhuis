@@ -48,6 +48,11 @@ public class BevestigingServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
+		
+		/*controleren of ingegeven gebruikersnaam en paswoord bestaan als op de zoek me op knop wordt geduwd
+		zoniet, foutmelding tonen,
+		anders klantengegevens tonen die bij gebruikersnaam horen*/
+		
 		if (request.getParameterValues("zoekMeOpKnop") != null) {
 			String gebruikersnaam = request.getParameter("gebruikersnaam");
 			String paswoord = request.getParameter("paswoord");
@@ -64,6 +69,7 @@ public class BevestigingServlet extends HttpServlet {
 			}
 		}
 
+		/* als bevestigknop wordt ingeduwd roep klant id op, roep voorstellingen in mandje op */
 		if (request.getParameterValues("bevestigKnop") != null) {
 			Klant klant = (Klant) session.getAttribute("klant");
 
@@ -72,10 +78,12 @@ public class BevestigingServlet extends HttpServlet {
 
 			Map<Integer, Integer> mandje = (Map<Integer, Integer>) session
 					.getAttribute("mandje");
-
+			
+			/* lijst gelukte en mislukte reservaties maken*/
 			List<Reservatie> geluktereservatie = new ArrayList<Reservatie>();
 			List<Reservatie> misluktereservatie = new ArrayList<Reservatie>();
 
+			/*reservaties in de database zetten en als dat lukt ook in de lijst gelukte reservaties*/
 			for (Map.Entry<Integer, Integer> reservatie : mandje.entrySet()) {
 				Voorstelling voorstelling = voorstellingenDAO.read(reservatie
 						.getKey());
@@ -84,6 +92,7 @@ public class BevestigingServlet extends HttpServlet {
 					geluktereservatie.add(new Reservatie(voorstelling,
 							reservatie.getValue()));
 
+					/*mislukt de reservatie, komt hij in de mislukte reservaties lijst */
 				} else {
 					misluktereservatie.add(new Reservatie(voorstelling,
 							reservatie.getValue()));
@@ -93,6 +102,7 @@ public class BevestigingServlet extends HttpServlet {
 				session.setAttribute("mislukt", misluktereservatie);
 
 			}
+			/*mandje leegmaken*/
 			mandje.clear();
 			session.setAttribute("mandje", mandje);
 			response.sendRedirect(response.encodeURL(String.format(
