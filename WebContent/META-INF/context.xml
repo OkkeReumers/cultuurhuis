@@ -4,8 +4,8 @@
 type='javax.sql.DataSource'
 driverClassName='com.mysql.jdbc.Driver' 
 url='jdbc:mysql://localhost/cultuurhuis' 
-username='cursist' 
-password='cursist' 
+username='root'
+password='vdab'
 closeMethod='close'/> 
 </Context>
 

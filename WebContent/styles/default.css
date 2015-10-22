@@ -1,13 +1,11 @@
 @CHARSET "ISO-8859-1";
-
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
-
-@import "normalize.css" ";
+@import "normalize.css";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 body {
 	background-color: #FFFFFF;
 	color: #59554E;
-	font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
@@ -56,13 +54,14 @@ table tr {
 	background-color: #FFFFFF;
 }
 
-body>table.tabel>tbody:nth-child(2n+1)>tr {
-	background-color: #F3F4E5;
+body > table > tbody:nth-child(2n+1) > tr{
+    background-color: #F3F4E5;
 }
 
-body>table>tbody>tr>td:nth-child(5) {
-	text-align: right;
+body>table>tbody>tr>td:nth-child(n+4):nth-child(-n+6) {
+	text-align: center;
 }
+
 
 body>table>tbody>tr>td:nth-child(6)>a {
 	color: #A1C1BE;
@@ -89,4 +88,12 @@ form#reserveerform span {
 
 #tabel>tbody>tr:nth-child(2n+2) {
 	background-color: #F3F4E5;
+}
+
+#verwijder > table > tbody > tr > td:nth-child(n+4):nth-child(-n+6) {
+    text-align: center;
+}
+
+#verwijder > table > tbody:nth-child(2n+1) > tr{
+    background-color: #F3F4E5;
 }
